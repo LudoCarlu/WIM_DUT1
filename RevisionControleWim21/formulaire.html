@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <meta charset= "latin1" />
+  <head>
+    <title>Ajout</title>
+  </head>
+  <body>
+    <h1>
+      Ajouter un enseignant
+    </h1>
+    <form method="post" action="ajouter.php" >
+      <table>
+			  <tr><td><label>Nom:</label></td><td><input type="text" name="nom" required/></td></tr>
+				<tr><td><label>Prenom: </label></td><td><input type="text" name="prenom" required/></td></tr>
+				<tr><td><label>Adresse e-mail: </label></td><td><input type="mail" name="email" required/></td></tr>
+        <tr><td><label>Numero du bureau: </label></td><td><input type="text" name="bureau" required/></td></tr>
+				<tr><td></td><td><input type="submit" value="Ajouter"/></td></tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/2.3.0/css/bootstrap.min.css" rel="stylesheet" />
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<form action="score.php" method="post">
+				<fieldset>
+					<legend>Quizz</legend>
+					<h5>Quelle est la capitale de la France ?</h5>
+					<label class="radio">
+						<input type="radio" name="question1"  value="faux" >Lyon
+					</label>
+					<label class="radio">
+						<input type="radio" name="question1"  value="vrai">Paris
+					</label>
+					<label class="radio">
+						<input type="radio" name="question1"  value="faux">Marseille
+					</label>
+					<h5>Quelle est le nombre suivant de la suite 1,2,4,8 ?</h5>
+					<label class="radio">
+						<input type="radio" name="question2"  value="vrai" >16
+					</label>
+					<label class="radio">
+						<input type="radio" name="question2"  value="faux">32
+					</label>
+					<h5>La bataille de Marignan a eu lieu en </h5>
+					<label class="radio">
+						<input type="radio" name="question3"  value="faux" >1492
+					</label>
+					<label class="radio">
+						<input type="radio" name="question3"  value="vrai">1515
+					</label>
+					<label class="radio">
+						<input type="radio" name="question3"  value="faux">1789
+					</label>
+
+					<button class="btn">Envoyer</button>
+
+				</fieldset>
+				<input type="hidden" value="3" name="nbq">
+			</form>
+		</body>
+	</html>
