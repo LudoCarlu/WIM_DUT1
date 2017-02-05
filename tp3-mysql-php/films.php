@@ -4,19 +4,19 @@
   <head>
   <title>FILMS PHP</title>
   </head>
-  
+
   <body>
     <table border = 1>
-    <tr> 
+    <tr>
       <th> Titre </th> 
       <th> Annee </th>
       <th> Genre </th>
       <th> Realisateur </th>
-    </tr> 
+    </tr>
     <?php
       //$link = mysqli_connect("sql7.freemysqlhosting.net","sql7117991","3crauH9nCF","sql7117991");
-      $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
-     
+      $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","mdp","carlu");
+
       if(!$link){
         die ("<p> connexion impossible </p>");
       }
@@ -34,7 +34,7 @@
       else {
         die("<p> Erreur dans l'execution de la requete </p>");
       }
-      mysqli_close($link);     
+      mysqli_close($link);
     ?>
     </table>
   </body>

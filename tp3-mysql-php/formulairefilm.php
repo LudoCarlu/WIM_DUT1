@@ -6,14 +6,14 @@
   </head>
   <body>
    <legend> Films </legend>
-   <form method="get" action="formulairefilm.php" > 
+   <form method="get" action="formulairefilm.php" >
      <select name="realisateur" value="Hitchcock"> <!-- Pourquoi Hitchcock comme valeur ? -->
      <?php
-      $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
+      $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","mdp","carlu");
       if(!$link){
         die ("<p> connexion impossible </p>");
       }
-      $res = mysqli_query($link,"SELECT DISTINCT A.nom 
+      $res = mysqli_query($link,"SELECT DISTINCT A.nom
       FROM Film F JOIN Artiste A WHERE A.idArtiste = F.idMes");
       if ($res){
         while($film = mysqli_fetch_assoc($res)){
@@ -23,14 +23,14 @@
       else {
         die("<p> Erreur dans l'execution de la requete </p>");
       }
-      mysqli_close($link);   
+      mysqli_close($link);
     ?>
     </select>
    <input type="submit" value="Submit" Chercher>
    </form>
    <table border = 1>
-   <tr> 
-     <th> Titre </th> 
+   <tr>
+     <th> Titre </th>
      <th> Annee </th>
      <th> Genre </th>
      <th> Realisateur </th>
@@ -39,13 +39,13 @@
    <?php
     if(isset($_GET["realisateur"])){
      $realisateur = $_GET["realisateur"];
-     
-     $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu"); 
-    
+
+     $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
+
      if(!$link){
        die ("<p> connexion impossible </p>");
      }
-     $res = mysqli_query($link,"SELECT F.titre,F.annee,F.genre,A.prenom,A.nom 
+     $res = mysqli_query($link,"SELECT F.titre,F.annee,F.genre,A.prenom,A.nom
      FROM Film F JOIN Artiste A WHERE A.idArtiste = F.idMes");
      if ($res){
        while($film = mysqli_fetch_assoc($res)){
@@ -68,13 +68,13 @@
    </table>
   </body>
 <html>
-  
-  <!-- 
+
+  <!--
 Le code est un peu brouillon et désordonné même si dans l'ensemble, il reste assez simple de compréhension
 Cependant, Le programme ne fonctionne pas, aucun film ne s'affiche même après sélection d'un artiste.
 La liste déroulante s'affiche tout de même.
 Les commits ici sont un peu plus nombreux et permettent de suivre l'avancement du fichier contrairement à l'exercice précédent.
-Note : 4,5/8 a)1/4 b)3/4 
+Note : 4,5/8 a)1/4 b)3/4
 
 Note globale : 11.5/20
 -->

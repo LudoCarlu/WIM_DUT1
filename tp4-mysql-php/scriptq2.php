@@ -4,15 +4,15 @@
   <head>
   <title>SCRIPT2</title>
   </head>
-  
+
   <body>
     <h1>
       Ajouter des films
     </h1>
-    
+
     <?php
     //Connexion a la base
-    $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
+    $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","mdp","carlu");
     if(!$link){
       die ("<p> connexion impossible </p>");
     }
@@ -24,7 +24,7 @@
       $real = mysqli_query($link,"SELECT DISTINCT A.nom,A.prenom,A.idArtiste,F.idMes FROM Film F JOIN Artiste A WHERE A.idArtiste = F.idMes");
       ?>
       Nom <input type="text" name="nom"> <br/>
-      Genre <select name="genre"> 
+      Genre <select name="genre">
       <?php
       if ($genre){
         while($a = mysqli_fetch_assoc($genre)){
@@ -37,7 +37,7 @@
       ?>
       </select>
       <br/>
-      
+
       Pays <select name="pays">
       <?php
       if ($pays){
@@ -48,7 +48,7 @@
       else {
         die("<p> Erreur dans l'execution de la requete </p>");
       }
-      ?> 
+      ?>
       </select>
       <br/>
       Realisateur <select name ="realisateur"> <br/>
@@ -65,11 +65,11 @@
       ?>
       </select>
       <br/>
-      
+
       Resume <textarea cols=30 rows=3 name ="resume"></textarea><br/>
       Annee <input type="text" name ="annee"> <br/>
       <input type="submit" value="Submit" Ajouter> <br/>
-      
+
       <?php
       if(isset($_GET["nom"]) && isset($_GET["genre"]) && isset($_GET["pays"]) && isset($_GET["realisateur"]) && isset($_GET["resume"])
         && isset($_GET["annee"])) {
@@ -79,22 +79,22 @@
         echo $requete;
         $insert = mysqli_query($link,$requete);
       }
-      
+
       ?>
     </form>
     <h1>
       Liste des films
     </h1>
     <table border = 1>
-    <tr> 
-      <th> Titre </th> 
+    <tr>
+      <th> Titre </th>
       <th> Genre </th>
-    </tr> 
+    </tr>
     <?php
       $res = mysqli_query($link,"SELECT titre,genre,idMes FROM Film");
       if ($res){
         while($film = mysqli_fetch_assoc($res)){
-          echo "<tr>"; 
+          echo "<tr>";
           echo "<td>".$film['titre']."</td>";
           echo "<td>".$film['genre']."</td>";
           echo "<td>".$film['idMes']."</td>";
@@ -104,9 +104,9 @@
       else {
         die("<p> Erreur dans l'execution de la requete </p>");
       }
-      mysqli_close($link);     
+      mysqli_close($link);
     ?>
     </table>
-        
+
   </body>
 </html>
